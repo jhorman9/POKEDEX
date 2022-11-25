@@ -41,7 +41,6 @@ const Pokedex = () => {
     }
 
 
-
     return (
         <>
         { loading ? (

@@ -28,11 +28,14 @@ const PokedexDetail = () => {
     if(status == 404){
         return(
             <>
-            <div className='btn-closed'>
-                <button onClick={() => navigate(-1)}> Back </button>
-            </div>
-            <div className='alert-pokemon'>
-                <h2>Pokemon no encontrado</h2>
+            <div className='status'>
+                <div className='btn-back'>
+                    <button onClick={() => navigate(-1)}> <i className="fa-solid fa-arrow-left"></i> </button>
+                </div>
+                <div className='alert-pokemon'>
+                    <div class="wobbling-10"></div>
+                    <h2>Pokemon no encontrado</h2>
+                </div>
             </div>
             </>
         )
