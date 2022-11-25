@@ -111,8 +111,7 @@ position: relative;
 }
 
 .container-pokedex .leave {
-    width: 37px;
-    height: 37px;
+    width: fit-content;
     padding: 10px;
     background-color: rgb(143, 232, 11);
     position: absolute;
