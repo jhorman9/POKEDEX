@@ -147,7 +147,7 @@ position: relative;
     width: 30%;
     height: 430px;
     background-image: url(https://mypokedex101.netlify.app/static/media/pokeball.81cfacf9.png);
-    position: absolute;
+    position: fixed;
     filter: brightness(200%);
     z-index: -1;
     top: -60px;
@@ -230,6 +230,7 @@ position: relative;
     border: none;
     background-color:  white;
     border-radius: 0 12px 12px 0;
+    cursor: pointer;
 }
 
 .container-pokedex .characters-pokedex form select{
@@ -516,7 +517,9 @@ position: relative;
     width: 50px;
     height: 50px;
     cursor: pointer;
-    background-color: rgb(49, 35, 145);
+    background-color: #2557a9;
+    color: white;
+    font-size: 35px;
     border: none;
     outline: none;
     border-radius: 15px;
@@ -526,6 +529,15 @@ position: relative;
     -o-border-radius: 15px;
 }
 
+.status .btn-back button:hover{
+    background-color: #4584ea;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
 .status .alert-pokemon{
     height: 75vh;
     display: flex;
@@ -533,6 +545,45 @@ position: relative;
     align-items: center;
     flex-direction: column;
     font-size: 25px;
+}
+
+.paginated{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.paginated button{
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    outline: none;
+    background-color: yellow;
+}
+
+.paginated button:hover{
+    background-color: rgb(254, 254, 91);
+}
+
+.paginated .btn{
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkred;
+    color: wheat;
+    margin: 0 5px;
+}
+
+.paginated .btn:hover{
+    background-color: rgb(194, 0, 0);
+    color: wheat;
 }
 
 /*----LOADING----*/

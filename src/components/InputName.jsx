@@ -14,7 +14,6 @@ const InputName = () => {
         dispatch(changeName(inputName))
         navigate('/pokedex')
     }
-    
 
     return (
         <div className='welcome-page'>

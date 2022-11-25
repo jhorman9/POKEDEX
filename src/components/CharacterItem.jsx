@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import pokelettercard from '../assets/pokelettercard1.jpg'
 
 const CharacterItem = ({url}) => {
 
@@ -13,7 +12,6 @@ const CharacterItem = ({url}) => {
             .catch(error => console.log(error.response.data))
     }, [])
 
-        console.log(charactersPokemon);
 
     return (
         <>

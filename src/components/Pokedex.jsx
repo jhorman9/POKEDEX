@@ -13,10 +13,26 @@ const Pokedex = () => {
     const [pokemonType, setPokemonType] = useState([])
     const [loading, setLoading] = useState(true);
 
+        /* --Paginator-- */
+
+        const [page, setPage] = useState(1);
+        const pokemonPerPage = 12;
+        const lastIndex = page * pokemonPerPage;
+        const firstIndex = lastIndex - pokemonPerPage;
+        const pokemonPaginated =  pokeCharacters.slice(firstIndex, lastIndex)
+        const totalPage = Math.ceil(pokeCharacters.length / pokemonPerPage)
+
+        let numbers = []
+        for(let i= 1; i<= totalPage; i++){
+        numbers.push(i)
+        }
+    
+        /*------------------ */
+
     const navigate = useNavigate()
 
     useEffect(()=> {
-        axios.get('https://pokeapi.co/api/v2/pokemon/')
+        axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1154')
             .then((res) => {
                 setLoading(false);
                 setPokeCharacters(res.data.results)
@@ -39,14 +55,13 @@ const Pokedex = () => {
         axios.get(urlType)
             .then(res =>  setPokeCharacters(res.data.pokemon))
     }
-
-
+    console.log(totalPage)
     return (
         <>
         { loading ? (
             <div className='loading_content'>
-                <div class="classic-6"></div>
-                <div class="wobbling-10"></div>
+                <div className="classic-6"></div>
+                <div className="wobbling-10"></div>
             </div>
          ) : (
         <div className="container-pokedex">
@@ -68,7 +83,14 @@ const Pokedex = () => {
                             onChange={(e) => setPokemonName(e.target.value)}
                             placeholder='Busca tú pokemon aquí'
                         />
-                        <button onClick={btnPokemonPerName}><i className="fa-solid fa-magnifying-glass"></i></button>
+                        {
+                            pokemonName === "" ? (
+                                <button disabled><i className="fa-solid fa-magnifying-glass"></i></button>
+
+                            ) : (
+                                <button onClick={btnPokemonPerName}><i className="fa-solid fa-magnifying-glass"></i></button>
+                            )
+                        }
                     </div>
                     <select onChange={filterPokeType} >                   
                         {pokemonType.map(type => (
@@ -79,12 +101,19 @@ const Pokedex = () => {
                     </select>
                 </form>
                 <ul className='poke-card'>
-                    {pokeCharacters.map(pokemon => (
+                    {pokemonPaginated.map(pokemon => (
                         <li key = {pokemon.url? pokemon.url : pokemon.pokemon.url}>
                             <CharacterItem url={pokemon.url? pokemon.url : pokemon.pokemon.url}/>
                         </li>
                     ))}
                 </ul>
+                <div className='paginated'>
+                    <button className='btn prev-page' onClick={() => setPage(page-1)} disabled={page <= 1}>Prev Page</button>
+                    {numbers.map(total => (
+                        <button onClick={() => setPage(total)}>{total}</button>
+                    ))}
+                    <button className='btn next-page' onClick={() => setPage(page+1)} disabled={page >= totalPage}>Next Page</button>
+                </div>
             </div>
         </div>
                     )}  

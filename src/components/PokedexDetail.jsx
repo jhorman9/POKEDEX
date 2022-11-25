@@ -10,6 +10,7 @@ const PokedexDetail = () => {
     const [ loading, setLoading ] = useState(true);
     const {id} = useParams();
 
+
     useEffect(()=> {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
             .then((res) => {
@@ -19,11 +20,9 @@ const PokedexDetail = () => {
     }, [])
 
     const navigate = useNavigate()
-    console.log(pokeCharacter);
 
     const stats = pokeCharacter.stats;
     const movements = pokeCharacter.moves;
-    console.log(movements);
 
     if(status == 404){
         return(
@@ -33,7 +32,7 @@ const PokedexDetail = () => {
                     <button onClick={() => navigate(-1)}> <i className="fa-solid fa-arrow-left"></i> </button>
                 </div>
                 <div className='alert-pokemon'>
-                    <div class="wobbling-10"></div>
+                    <div className="wobbling-10"></div>
                     <h2>Pokemon no encontrado</h2>
                 </div>
             </div>
@@ -41,12 +40,14 @@ const PokedexDetail = () => {
         )
     }
 
+    console.log(pokeCharacter)
+
     return (
         <>
         { loading ? (
             <div className='loading_content'>
-                <div class="classic-6"></div>
-                <div class="wobbling-10"></div>
+                <div className="classic-6"></div>
+                <div className="wobbling-10"></div>
             </div>
         ) : (
         <div className='poke-per-id'>
