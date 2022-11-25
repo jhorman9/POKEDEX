@@ -373,7 +373,7 @@ position: relative;
  }
 
 .poke-per-id .set-contain-movements .main-features .content-img .numberid{
-    width: 36px;
+    width: fit-content;
     padding: 10px;
     margin: auto;
     border: 1px solid #adb5b3;
@@ -435,23 +435,44 @@ position: relative;
 
 .poke-per-id .set-contain-movements .contain-characters-pokedetail .types .duo-types .type1, .type2{
     width: 40%;
+    height: 37px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     border-radius: 6px;
-    margin-bottom: 10px;
     background-color: #48d0b0;
+}
+
+@media(max-width: 575px){
+    .poke-per-id .set-contain-movements .contain-characters-pokedetail .types .duo-types .type1, .type2{
+        height: 45px;
+        line-height: 1;
+    }
 }
 
 .poke-per-id .set-contain-movements .contain-characters-pokedetail .abilities .duo-abilities {
     display: flex;
     justify-content: space-around;
-   text-align: center;
+    align-items: center;
+    text-align: center;
 }
 
 .poke-per-id .set-contain-movements .contain-characters-pokedetail .abilities .duo-abilities .abilities1, .abilities2{
     width: 40%;
     height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 6px;
-    padding-top: 16px;
     background-color: #d7e2df;
+}
+
+@media(max-width: 575px){
+    .poke-per-id .set-contain-movements .contain-characters-pokedetail .abilities .duo-abilities .abilities1, .abilities2{
+        height: 45px;
+        line-height: 1;
+    }
 }
 
 .poke-per-id .set-contain-movements .contain-characters-pokedetail .stats-bases{
