@@ -110,7 +110,7 @@ const Pokedex = () => {
                 <div className='paginated'>
                     <button className='btn prev-page' onClick={() => setPage(page-1)} disabled={page <= 1}>Prev Page</button>
                     {numbers.map(total => (
-                        <button onClick={() => setPage(total)}>{total}</button>
+                        <button key={total} onClick={() => setPage(total)}>{total}</button>
                     ))}
                     <button className='btn next-page' onClick={() => setPage(page+1)} disabled={page >= totalPage}>Next Page</button>
                 </div>
